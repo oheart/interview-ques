@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断数据类型</title>
+    <script>
+        var class2type = {} ;
+        "Boolean Number String Function Array Date RegExp Object Error".split(" ").forEach(function(e,i){
+            class2type[ "[object " + e + "]" ] = e.toLowerCase();
+        }) ;
+        //当然为了兼容IE低版本，forEach需要一个polyfill，不作细谈了。
+        function type(obj){
+            if ( obj == null ){
+                return String( obj );
+            }
+            return typeof obj === "object" || typeof obj === "function" ?
+                class2type[ class2type.toString.call(obj) ] || "object" :
+                typeof obj;
+        }
+        console.log(type(1));
+        console.log(Object.prototype.toString.call(2));
+
+//        法二
+      /*  function type(obj){
+            return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
+        }
+       console.log(type(new Date()));*/
+    </script>
+</head>
+<body>
+
+</body>
+</html>

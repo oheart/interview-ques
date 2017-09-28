@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转换驼峰命名</title>
+</head>
+<body>
+<script>
+    /*
+        小科去了一家新的公司做前端主管，发现里面的前端代码有一部分是 C/C++ 程序员写的，他们喜欢用下划线命名，例如： is_good。小科决定写个脚本来全部替换掉这些变量名。
+
+        完成 toCamelCaseVar 函数，它可以接受一个字符串作为参数，可以把类似于 is_good 这样的变量名替换成 isGood。
+
+        变量名首尾的下划线不需要做处理，中间的下划线全部删除并且处理成驼峰。
+    */
+
+    function  toCamelCaseVar(variable){
+        var result = variable.replace(/(^_+)|(_+\S)/g, function(match){
+             return match[match.length-1] === '_' ? match : match[match.length-1].toUpperCase();
+        })
+        return result;
+    }
+
+   /* const toCamelCaseVar = (variable) =>
+        variable.replace(/(^_+)|(_+\S)/g, (match) =>
+            match[match.length-1] === '_' ? match : match[match.length-1].toUpperCase());*/
+
+    console.log(toCamelCaseVar);
+    toCamelCaseVar("is_good")
+    console.log(toCamelCaseVar("is_good"));
+   console.log(toCamelCaseVar("is_"));
+   console.log(toCamelCaseVar("is__"));
+    console.log(toCamelCaseVar("a_hello_world_x"));
+    console.log(toCamelCaseVar("hi"));
+</script>
+</body>
+</html>

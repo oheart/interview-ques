@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取文件后缀名</title>
+    <script>
+        var a = "abc.jpg.jpg";
+
+//        法一
+       /* function getExtname(filename){
+            var result = /\.[^\.]+/.exec(filename);
+            return result;
+        }*/
+
+//        法二
+        function getExtname(filename){
+           var extIndex = filename.lastIndexOf('.');
+           if(extIndex <= 0){
+               return '';
+           }else{
+               return filename.slice(extIndex);
+           }
+        }
+        console.log(getExtname(a));
+
+        /*javascript中substring()、substr()、slice()的区别
+        http://www.jb51.net/article/71719.htm*/
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

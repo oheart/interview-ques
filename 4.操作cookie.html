@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作cookie</title>
+</head>
+<body>
+    <!--完成 cookieJar 单例，它有三个方法：
+    set(name, value, days)：设置 cookie 的值，days 为多少天以后过期。
+    get(name)：获取 cookie 的值。
+    remove(name)：删除 cookie 的值-->
+<script>
+     var cookieJar = {
+         set: function(name,value,days){
+                var oDate = new Date();
+                oDate.setDate(oDate.getDate() + days);
+                console.log(oDate.getDate());
+                console.log(oDate.getDate() + days);
+                console.log(oDate.toGMTString());
+                document.cookie = name + '=' + value + ';expires=' + oDate.toGMTString();
+         },
+         /*get:function(name){
+                var arr1 = document.cookie.split(";");
+                for(var i = 0; i < arr1.length; i++){
+                    var arr2 = arr1[i].split("=");
+                    if(arr2[0] == name){
+                        return decodeURI(arr2[1]);
+                    }
+                }
+         },*/
+         get:function(name){
+          /*   var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");*/
+             var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+             console.log(reg);
+             console.log(document.cookie);
+             console.log(document.cookie.match(reg));
+             if(arr=document.cookie.match(reg))
+                 return decodeURI(arr[2]);
+             else
+                 return null;
+         },
+         remove:function(name){
+             cookieJar.set(name,'',-1);
+         }
+     };
+     cookieJar.set('uname','xiao',30);
+     cookieJar.set('upwd','111111',30);
+     cookieJar.set('uSex','12',30);
+//     console.log(cookieJar.get('uname'));
+     console.log(cookieJar.get('upwd'));
+//     cookieJar.remove('uname');
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

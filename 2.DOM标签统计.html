@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM标签统计</title>
+</head>
+<body>
+   <!-- 完成 getPageTags 函数，判断你的代码所执行的页面用到了哪些标签。
+
+    例如，如果页面中：
+
+    <html>
+    <head></head>
+    <body></body>
+    <script>...</script>
+    </html>
+    那么 getPageTags() 则返回数组 ['html', 'head' 'body', 'script']（顺序不重要）。-->
+   <script>
+       function getPageTags(){
+           var doms = document.getElementsByTagName("*");
+           var s = new Set([].slice.call(doms).map(function(dom){
+               return dom.tagName;
+           }))
+           console.log(s);
+           return Array.from(s);
+       }
+       console.log(getPageTags());
+
+      /*
+            Array.from方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）
+           和可遍历(iterable)的对象（包括ES6新增的数据结构和Set和Map）；
+
+           下面是一个类似数组的对象，Array.from将它转为真正的数组。
+           let arrayLike = {
+                '0': 'a',
+                '1': 'b',
+                '2': 'c',
+                length: 3
+           }
+
+           //ES5的写法
+           var arr1 = [].slice.call(arrayLike); // ['a','b','c']
+
+           //ES6的写法
+           let arr2 = Array.from(arrayLike); //['a','b','c']
+       */
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </script>
+</body>
+</html>

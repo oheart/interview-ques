@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>找出页面上所有的div里内容包含abc的</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta content="telephone=no" name="format-detection" />
+    <style>
+    *{margin:0;padding:0}
+    </style>
+</head>
+<body>
+    <div>
+            abcde
+    </div>
+    <div>
+            efab
+    </div>
+    <div>
+            xacec
+    </div>
+    <div>
+            deabc
+    </div>
+<script src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>  
+<script>
+        // 找出页面上所有的div里内容包含abc的
+
+      /* 法一： jq
+        var arr = [];
+        $('div').each(function(){
+                var eachDivTxt = $(this).text().trim();
+                if(/abc/.test(eachDivTxt)){
+                        arr.push($(this));
+                }
+        })
+        console.log(arr); 
+       */
+       
+        //法一： js
+       var arr = [];
+       var divs = document.getElementsByTagName('div');
+       for(var i = 0; i < divs.length; i++){
+               var everyTxt = divs[i].innerHTML.trim();
+               if(/abc/.test(everyTxt)){
+                       arr.push(divs[i]);
+               }
+       }
+       console.log(arr);
+</script>
+</body>
+
+</html>
