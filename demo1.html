@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>demo</title>
+    </head>
+    <body>
+       <script>
+           var script = document.createElement('script');
+           script.src = 'https://www.baidu.com/home/msg/data/personalcontent?callback=appendHtml';
+           document.head.appendChild(script);
+           //防止多次请求出现多个script标签，所以可以删掉
+           document.head.removeChild(script);
+
+           function appendHtml(data){
+             console.log('data: ', data)
+           }
+
+      
+
+
+
+
+
+
+       </script>
+    </body>
+</html>
