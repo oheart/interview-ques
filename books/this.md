@@ -273,6 +273,22 @@ var app = {
     }
 }
 ```
+```js
+var name = 'hunger'
+var obj = {
+   name: 'valley',
+   fn: function(){
+       this.name = 'jirengu'    //此时把obj.name变成jirengu
+       var name = 'world'
+       function fn2(){
+        var name = 'hello'
+         console.log(this.name)    //这里的this是window
+       }
+       fn2()
+   }
+}
+obj.fn()  //hunger
+```
 
 ## 参考链接
 1. <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank">this</a>

@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>demo</title>
-    </head>
-    <body>
-       <script>
-           var script = document.createElement('script');
-           script.src = 'https://www.baidu.com/home/msg/data/personalcontent?callback=appendHtml';
-           document.head.appendChild(script);
-           //防止多次请求出现多个script标签，所以可以删掉
-           document.head.removeChild(script);
 
-           function appendHtml(data){
-             console.log('data: ', data)
-           }
+<head>
+    <meta charset="utf-8" />
+    <title>demo</title>
+</head>
 
-      
+<body>
+    <div id="div1">
+        我是一个div
+    </div>
+    <script>
+    var arr = [
+      {name:"Tom", age: 18},
+      {name:"Hix", age: 20},
+      {name:"amy", age: 22}
+    ]
+
+    var res = arr.reduce(function(prev, cur){
+      console.log('prev: ', prev)
+      console.log('cur: ', cur)
+      return [...prev, cur.name]
+    },[])
+    console.log('res: ', res)   // ["Tom", "Hix", "amy"]
+    
+ 
+   
 
 
+  
+    </script>
+</body>
 
-
-
-
-       </script>
-    </body>
 </html>

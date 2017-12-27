@@ -1,17 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>demo</title>
-    </head>
-    <body>
-        <div id="div1">
-            我是一个div            
-        </div>
-       <script>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <title>state</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var parentPart = React.createClass({
+        getInitialState: function(){
+          return {
+            btnState: false
+          }
+        },
+        // onToggleClick: function(e){
+        //   var btnState = this.state.btnState;
+        //   this.setState({
+        //     btnState: !btnState
+        //   })
+        // },
+        render: function(){
+          // var btnState = this.state.btnState;
+          return (
+            <div>
+                <spanPart />
+                <btnPart />
+            </div>
+          )
+        }
+      })
+
+      var spanPart = React.createClass({
+        render: function(){
+          return (
+            <div>
+              <span>click me&nbsp;&nbsp;</span>
+            </div>
+           
+          )
+        }
+      })
+
+      var btnPart = React.createClass({
+        render: function(){
+          return (
+            <button>button</button>
+          )
+        }
+      })
 
 
-       </script>
-    </body>
+      ReactDOM.render(
+        <parentPart />,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
 </html>
