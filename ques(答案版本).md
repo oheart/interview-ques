@@ -1,12 +1,49 @@
 1. **介绍一下盒模型（标准和怪异模式）**
 
+在标准模式（w3c标准盒模型）下，一个块总宽度（总宽度 = width + margin + padding + border）
+在怪异模式（IE标准盒模型）下， 一个块总宽度 （总宽度= width + margin）—> width包含padding和border
+
+避免触发IE盒模型的方法是使用<!DOCTYPE html>声明，告诉IE采用W3C盒子模型即可。
+
+Css3中新增了一种盒模型计算方式：border-sizing. 
+如果border-sizing：border-box，此时将采用怪异模式解析计算：
+那么布局所占宽度为
+        总宽度 = width（包含padding和border）
+        总高度 = height（包含padding和border）
 
 
 2. **position几种定位方式及区别**
 
+fixed, relative, fixed;
 
 
 3. **实现两栏布局，左边固定宽度，右边自适应。**
+ 
+```html
+<div id="left">Left sidebar</div>
+<div id="content">Main Content</div>
+```
+
+第一种： 浮动布局
+```css
+#left { float: left; width: 220px; background-color: green; }  
+#content { background-color: orange; margin-left: 220px;
+``` 
+第二种： 浮动和负边距实现
+```css
+    #left {
+        background-color: green;
+        float: left;
+        width: 220px;
+        margin-right: -100%;
+    }
+
+    #content {
+        float: left;
+        width: 100%;
+    }
+```
+
 
 
 

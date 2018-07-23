@@ -3,13 +3,27 @@
 
 
 
+
 2. **position几种定位方式及区别**
 
 
 
 
 
+
 3. **实现两栏布局，左边固定宽度，右边自适应。**
+```html
+<div id="left">Left sidebar</div>
+<div id="content">Main Content</div>
+```
+```css
+#left { 
+    
+}
+#content { 
+
+}
+```
 
 
 
