@@ -12,18 +12,18 @@
 
 
 3. **实现两栏布局，左边固定宽度，右边自适应。**
-```html
-<div id="left">Left sidebar</div>
-<div id="content">Main Content</div>
-```
-```css
-#left { 
-    
-}
-#content { 
+    ```html
+    <div id="left">Left sidebar</div>
+    <div id="content">Main Content</div>
+    ```
+    ```css
+    #left { 
+        
+    }
+    #content { 
 
-}
-```
+    }
+    ```
 
 
 
@@ -145,7 +145,7 @@
 
 
 16. **获取单独一篇的文章页请求需要依赖于获取文章信息和获取该文章下所有留言这两个接口请求，请用代码实现单独一篇的文章页请求。**
-    ```js
+```js
     // 获取文章信息接口请求
     function getPostById(){}
 
