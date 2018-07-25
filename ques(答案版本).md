@@ -69,46 +69,45 @@ fixed: 绝对定位，脱离所有元素，相对于浏览器窗口进行定位�
 
 
 
-4. **实现未知高宽元素垂直居中**
+### 4. 实现未知高宽元素垂直居中
+absolute+margin:auto
+    
+```css
+.parent{
+           position:relative;
+}
+.child{
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            margin:auto;
+}
+```
+transform居中
+    
+```css   
+.parent {
+        position: relative;
+}
+.child {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
+```
 
-    absolute+margin:auto
+flex居中
     
-    ```css
-    .parent{
-               position:relative;
-    }
-    .child{
-                position:absolute;
-                left:0;
-                right:0;
-                top:0;
-                bottom:0;
-                margin:auto;
-    }
-    ```
-    transform居中
-    
-    ```css   
-    .parent {
-            position: relative;
-    }
-    .child {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-    }
-    ```
-
-    flex居中
-    
-    ```css 
-    .flex-center-justify{
-            display:flex;
-            justify-content:center; /*水平居中*/
-            align-items:center; /*垂直居中*/
-    }
-    ```      
+```css 
+.flex-center-justify{
+        display:flex;
+        justify-content:center; /*水平居中*/
+        align-items:center; /*垂直居中*/
+}
+```      
 
 ### 5. 列举常见的移动端适配方案
 viewport，rem, vw vh, 百分比, media, flex, grid, box-sizing...
@@ -266,7 +265,7 @@ $('ul').delegate('click', 'li', function () {})
 
 相同点：都是存储数据，存储在web端，并且都是同源
 
-不同点：
+不同点：  
 （1）cookie 只有4K 小 并且每一次请求都会带上cookie 体验不好，浪费带宽  
 （2）session和local直接存储在本地，请求不会携带，并且容量比cookie要大的多  
 （3）session 是临时会话，当窗口被关闭的时候就清除掉 ，而 local永久存在，cookie有过期时间  
